@@ -57,7 +57,7 @@ tbl_levels='CREATE TABLE levels (
 );';
 
 tbl_shapes='CREATE TABLE shapes (
-	shape_id TEXT NOT NULL UNIQUE
+	shape_id TEXT NOT NULL
 	shape_pt_lat TEXT NOT NULL
 	shape_pt_lon TEXT NOT NULL
 	shape_pt_sequence INTEGER NOT NULL
@@ -232,8 +232,8 @@ idx_all='CREATE UNIQUE INDEX idx_agency_id 	ON agency (agency_id);
 	CREATE INDEX idx_arrival_time 			ON stop_times (arrival_time);
 	CREATE INDEX idx_date 					ON calendar_dates (date);
 	CREATE INDEX idx_stop_name 				ON stops (stop_name);
+	CREATE INDEX idx_shape_id 				ON shapes (shape_id, shape_pt_sequence);
 	CREATE UNIQUE INDEX idx_service_id_cal 	ON calendar (service_id);
-	CREATE UNIQUE INDEX idx_shape_id 		ON shapes (shape_id, shape_pt_sequence);
 	CREATE UNIQUE INDEX idx_level_id 		ON levels (level_id);
 	CREATE UNIQUE INDEX idx_attribution_id	ON attributions (attribution_id);
 	CREATE UNIQUE INDEX idx_pathway_id		ON pathways (pathway_id);
